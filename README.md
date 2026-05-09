@@ -58,8 +58,8 @@ ShopEasy-Scraper-ETL-Pipeline/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourhandle/books-pipeline.git
-cd books-pipeline
+git clone https://github.com/samuelede/ShopEasy-Scraper-ETL-Pipeline.git
+cd ShopEasy-Scraper-ETL-Pipeline
 ```
 
 ### 2. Create and activate a virtual environment
@@ -168,18 +168,18 @@ Click **Create Basic Task** in the right panel and follow these steps:
 
 | Field | Value |
 |-------|-------|
-| Name | `Books Pipeline` |
+| Name | `ShopEasy Pipeline` |
 | Description | `Daily ETL run for books price intelligence` |
 | Trigger | Daily |
 | Start time | `06:00:00` (or any time you prefer) |
 | Action | Start a program |
 | Program/script | Browse to your `run_pipeline.bat` file |
-| Start in | Your project root e.g. `C:\DE2026\ShopEasy-Scraper-ETL-Pipeline` |
+| Start in | Your project root e.g. `C:\Your-Project-Folder\ShopEasy-Scraper-ETL-Pipeline` |
 
 ### Step 4 — Confirm the task
 
 Click **Finish**. Your pipeline will now run automatically every day at the
-time you set. To verify, find **Books Pipeline** in the Task Scheduler library
+time you set. To verify, find **ShopEasy Pipeline** in the Task Scheduler library
 and check the **Next Run Time** column.
 
 ### Step 5 — Check the logs after a scheduled run
