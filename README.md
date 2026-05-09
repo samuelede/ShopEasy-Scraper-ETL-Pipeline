@@ -7,6 +7,16 @@ market trend monitoring.
 
 ---
 
+## Overview
+
+Built for **ShopEasy Retail Intelligence**, this project replaces manual, inconsistent
+data collection with an automated pipeline that scrapes product pricing data from
+[books.toscrape.com](https://books.toscrape.com), cleans and loads it into PostgreSQL,
+and surfaces actionable pricing insights through SQL analytics — enabling faster, more
+reliable market decisions.
+
+---
+
 ## Project Structure
 
 ```
@@ -216,8 +226,36 @@ Once data has been loaded, run the full analytics script:
 psql -U postgres -d shopeasy -f sql/analytics.sql
 ```
 
-If you see an encoding error on Windows, run this first:
+### Troubleshooting: Encoding Error on Windows
 
+If you see this error on any query:
+```
+ERROR: character with byte sequence 0xc2 0x80 in encoding "UTF8"
+has no equivalent in encoding "WIN1252"
+```
+
+This is a Windows terminal encoding issue. Fix it by setting the encoding
+inside psql before running the file:
+
+```bash
+psql -U postgres -d shopeasy
+```
+
+Then inside psql run these two commands:
+```sql
+\encoding UTF8
+\i sql/analytics.sql
+```
+
+OR run once using this command:
+```bash
+psql -U postgres -d shopeasy -c "SET client_encoding TO 'UTF8';" -f sql/analytics.sql
+```
+
+The `\encoding UTF8` command tells psql to read the file as UTF-8 instead
+of trying to convert it to Windows encoding. All queries will then run cleanly.
+
+Alternatively, set the terminal encoding before connecting:
 ```bash
 chcp 65001
 psql -U postgres -d shopeasy -f sql/analytics.sql
