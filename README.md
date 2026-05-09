@@ -1,4 +1,4 @@
-# ShopEasy — Web Scraping Data Pipeline & Price Intelligence Analytics
+# ShopEasy: Web Scraping Data Pipeline & Price Intelligence Analytics
 
 A production-grade ETL pipeline built for **ShopEasy Retail Intelligence** that automates data
 collection from [books.toscrape.com](https://books.toscrape.com), transforms it into clean,
